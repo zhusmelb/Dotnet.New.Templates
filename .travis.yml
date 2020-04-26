@@ -1,3 +1,4 @@
+os: windows
 git:
   depth: 1
   quiet: true
@@ -10,7 +11,5 @@ install:
   - gem install gitversion
 
 script:
-  - dotnet restore
-  - gitversion
-  - dotnet pack
+  - powershell ./build/build_package.ps1
 
