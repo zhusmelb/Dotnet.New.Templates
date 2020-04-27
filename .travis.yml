@@ -10,10 +10,10 @@ mono: none
 dotnet: 3.1.201
 
 install:
-  - docker pull gittools/gitversion5.2.5-linux
+  - docker pull gittools/gitversion:5.2.5-linux
 
 before_script:
-  - export GitVersion_NuGetVersionV2=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion5.2.5-linux /repo -output json -showvariable NuGetVersionV2)
+  - export GitVersion_NuGetVersionV2=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.2.5-linux /repo -output json -showvariable NuGetVersionV2)
 
 script:
   - dotnet pack
