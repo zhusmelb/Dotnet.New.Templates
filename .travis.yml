@@ -1,5 +1,4 @@
 git:
-  depth: 1
   quiet: true
 
 service:
@@ -14,6 +13,7 @@ install:
 
 before_script:
   - export GitVersion_NuGetVersionV2=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.2.5-linux /repo -output json -showvariable NuGetVersionV2)
+  - echo "Nuget package version is $GitVersion_NuGetVersionV2"
 
 script:
   - dotnet pack
