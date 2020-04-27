@@ -23,6 +23,8 @@ deploy:
   skip_cleanup: true
   provider: script
   script: dotnet nuget push $(pwd)/*.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
+  on:
+    all_branches: true
 
 env:
   global:
