@@ -17,4 +17,13 @@ before_script:
   - echo "Nuget package version is $GitVersion_NuGetVersionV2"
 
 script:
-  - dotnet pack
+  - dotnet pack -o $(pwd)
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: dotnet nuget push $(pwd)/*.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
+
+env:
+  global:
+    secure: "prb7U2g2kBtnOtVaA8IY8I6O/m6GVDgBbzBbisUQ9ws4MuKHAVokCT5702rQa+uQamHcU96UBJBUy8UW0nsHGO0j3L7pmzToKzGs9LQ2R2sXScMngTH5Ita7EPkT3Foqg6QMprAQcoj81PyyesLUvvMI/UL8YJosND9sKLcOTZqYA2G04LxIJd5CwHYmUm0xh76SEzSKyN4ueMbfPdhKiC9ZYO0LEXhBjcXS2ZYZrRntpphv3sowLX2gManmtqdtASRh3OTeDz1k+PZECNyU9eYyD29d+RiwpmDti5UheuiRtdKv6+vCokgxwKZmj3A1kh9nJz2/aVNATOwr3QeBp8QUlQOUsZVHLvX08ZvycnLIRwJGP/cXUnGogejDIwbxL+sSDjAeaA8PYTko5eL36BJYF2hP1+2aPqMJh+cwk9zoyyQg31YxL9+e8H6sPbsT+FC5sjcHGKt4JxJyzoHu88gGGY1/1Cn6Pqog6RpMRwtv6PNOGLbwT+YarlxauC/ZUxXkQsdtCIuRk+Ey3ciHmZLB2W0WB7wbtTFD+nNl3xIEzQfqT2pHL1m6e6PGypMWYaaY1+3a7oj0kt7ym5WdC/5VmXE4BEm6oZ2RHAri693aOWKvi/saoBgRfgv79pXIx8EGzVm2QF0mDgkIYUXV/Lne6ww0X/ll8X987PorXUg="
