@@ -10,5 +10,6 @@ install:
   - gem install gitversion
 
 script:
-  - powershell ./build/build_package.sh
+  - chmod +x ./build/build_package.sh
+  - ./build/build_package.sh
 
