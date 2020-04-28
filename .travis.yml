@@ -17,7 +17,7 @@ before_script:
   - echo "Nuget package version is $GitVersion_NuGetVersionV2"
 
 script:
-  - dotnet pack -o $(pwd) --no-build
+  - dotnet pack -o $(pwd)
 
 deploy:
   skip_cleanup: true
