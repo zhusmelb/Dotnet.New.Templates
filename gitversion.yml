@@ -1,3 +1,5 @@
 branches:
   master:
     mode: ContinuousDelivery
+  release:
+    mode: ContinuousDeployment
