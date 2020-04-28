@@ -8,7 +8,7 @@
     ],
     "identity": "zhusmelb.new.template.generichostconsole",
     "name": "Generic Host Console Application",
-    "shortName": "generichostconsole",
+    "shortName": "ghconsole",
     "tags": {
         "language": "C#"
     },
